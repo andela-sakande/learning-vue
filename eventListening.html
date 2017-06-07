@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Learning Vue</title>
+</head>
+<body>
+<div id="root">
+    <ul>
+        <li v-for="name in names">{{ name }}</li>
+    </ul>
+
+    <input type="text" id="input" v-model="newName">
+    <button @click="addName">Add Name</button>
+</div>
+<script src="https://unpkg.com/vue"></script>
+<script>
+    let data = {
+        names: ['Hello World', 'Bola', 'Koyejo'],
+        newName: ''
+    };
+
+    var vm = new Vue({
+        el: '#root',
+        data: data,
+
+        methods: {
+            addName () {
+                this.names.push(this.newName);
+                this.newName = '';
+            }
+        },
+//        mounted() {
+//            alert('ready');
+//        }
+    })
+</script>
+</body>
+</html>
